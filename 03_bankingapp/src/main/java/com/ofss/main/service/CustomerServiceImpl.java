@@ -1,5 +1,7 @@
 package com.ofss.main.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,32 @@ public class CustomerServiceImpl implements CustomerService{
         // Save the customer entity
         return customerRepository.save(customer);
 //        return true;
+	}
+	
+//	@Override
+//	public Customer fetchCustomerDetails(Customer customer) {
+//		return null;
+//	}
+
+	@Override
+	public Customer getCustomerByLogin(Login login) {
+		Optional<Login> loginOptional = loginRepository.findById(login.getLoginId());
+		   
+	    if (loginOptional.isPresent()) {
+	        // If the login exists, retrieve the customer associated with this login
+	    	Login Userlogin = loginOptional.get();
+	    	Customer customerDetails = null;
+	        if(Userlogin.getPassword().equals(login.getPassword()))
+	        	customerDetails = customerRepository.findByLogin(login);
+//	        Customer customerDetails = 
+	       
+	        if (customerDetails != null) {
+	            return customerDetails;
+	        }
+	    }
+	   
+	    // If loginId is not found or customer is not found, return null
+	    return null;
 	}
 
 }
