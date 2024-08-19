@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,6 +51,8 @@ public class LoginController {
     }
 }
 	
+	// this method is used to add customer (Registration)
+	// for this we give customer details in body of PostMan
 	@PostMapping("/customers")
     public ResponseEntity<?> createCustomer(@RequestBody Customer customer) {
         try {
@@ -74,4 +77,15 @@ public class LoginController {
 		return ResponseEntity.status(400).body("Login");
 	}
 }
+	
+	@PutMapping("updatecustomerdetails")
+	public ResponseEntity<?> updateCustomerDetails(@RequestBody Customer customer) {
+		Customer UpdatedCustomer = customerService.updateCustomerDetails(customer);
+		
+		if (UpdatedCustomer != null) {
+			return ResponseEntity.ok(UpdatedCustomer);
+		} else {
+		return ResponseEntity.status(400).body("Error occured! check your data");
+	}
+	}
 }

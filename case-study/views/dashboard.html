@@ -1,0 +1,109 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding" id="dark-container">
+  <oj-c-progress-bar id="progressBar" value="{{fieldProgress()}}"></oj-c-progress-bar>
+  <div id="switch-container">
+    <oj-switch label-hint="Dark background" id="contrastBgSwitch" value="{{isContrastBackground}}"></oj-switch>
+  </div>
+  <!-- <oj-c-button id="button1" on-oj-action="[[handleClick]]" label="Button Action 1"></oj-c-button> -->
+  <h1> Form components demo</h1>
+  <oj-c-form-layout max-columns="2" direction="row" full-width="true">
+    <div>
+      <oj-c-input-number id="text-number" value="{{jsonId}}" label-hint="Enter Your Id"
+        label-edge="inside"></oj-c-input-number>
+
+    </div>
+    <div>
+      <oj-c-input-text id="text-input" value="{{username}}" label-hint="Enter Your Username"
+        label-edge="inside"></oj-c-input-text>
+
+    </div>
+    <div>
+      <oj-c-input-text id="text-input" value="{{firstName}}" label-hint="Enter Your Name"
+        label-edge="inside"></oj-c-input-text>
+
+    </div>
+    <div>
+      <oj-c-input-number value="{{salary}}" label-hint="Enter Salary" min="0" step="0"></oj-c-input-number>
+
+    </div>
+    <div>
+      <oj-c-input-password value="{{password}}" label-hint="Enter your password"></oj-c-input-password>
+
+      
+
+    </div>
+    <div>
+      <oj-c-input-text value="{{address}}" label-hint="Enter your address"></oj-c-input-text>
+
+
+    </div>
+    <div>
+      <oj-c-input-text value="{{email}}" label-hint="Enter your email"></oj-c-input-text>
+
+
+    </div>
+
+    <div>
+      <!-- <oj-c-input-date-text label-hint="Enabled no value"></oj-c-input-date-text> -->
+      <oj-input-date value="{{date}}" label-hint="Enabled" autocomplete="off"></oj-input-date>
+    </div>
+
+
+
+    <h3>
+      Hey! <oj-bind-text value="[[firstName]]"></oj-bind-text>
+    </h3>
+    <h3>
+      Your username is <oj-bind-text value="[[username]]"></oj-bind-text>
+    </h3>
+    <!-- <h3>
+      Your Password is <oj-bind-text value="[[password]]"></oj-bind-text>
+    </h3> -->
+    <h3>
+      Your Address is <oj-bind-text value="[[address]]"></oj-bind-text>
+    </h3>
+    <h3>
+      <!-- Hey! <oj-bind-text value="[[value]]"></oj-bind-text> -->
+      Salary is <oj-bind-text value="[[salary]]"></oj-bind-text>
+    </h3>
+    <h3>
+      <!-- Hey! <oj-bind-text value="[[value]]"></oj-bind-text> -->
+      Email is <oj-bind-text value="[[email]]"></oj-bind-text>
+    </h3>
+    <h3>
+      The selected date is <oj-bind-text value="[[date]]"></oj-bind-text>
+    </h3>
+  </oj-c-form-layout>
+  <div>
+    <oj-c-button id="button1" on-oj-action="[[handleClick]]" disabled="[[jsonId() == null]]"
+      label="Submit"></oj-c-button>
+  </div>
+  <div>
+  <oj-table id="table" aria-label="Departments Table" accessibility.row-header="depName" 
+    selection-mode='{"row": "multiple", "column": "multiple"}' dnd='{"reorder": {"columns": "enabled"}}'
+    scroll-policy="loadMoreOnScroll" scroll-policy-options='{"fetchSize": 10}' columns='[{"headerText": "Id", 
+                       "field": "[[jsonData.name]]",
+                       "headerClassName": "oj-sm-only-hide",
+                       "className": "oj-sm-only-hide",
+                       "resizable": "enabled",
+                       "id": "depId"},
+                      {"headerText": "Name", 
+                       "field": "DepartmentName",
+                       "resizable": "enabled",
+                       "id": "depName"},
+                      {"headerText": "Username", 
+                       "field": "LocationId",
+                       "headerClassName": "oj-sm-only-hide",
+                       "className": "oj-sm-only-hide",
+                       "resizable": "enabled",
+                       "id": "locId"},
+                      {"headerText": "City", 
+                       "field": "ManagerId",
+                       "resizable": "enabled",
+                       "id": "manId"}]' class="demo-table-container"></oj-table>
+                      </div>
+</div>

@@ -7,4 +7,5 @@ public interface CustomerService {
 	Customer addNewCustomer(Customer customer);
 	Customer getCustomerByLogin(Login login);
 //	Customer fetchCustomerDetails(Customer customer);
+	Customer updateCustomerDetails(Customer customer);
 }

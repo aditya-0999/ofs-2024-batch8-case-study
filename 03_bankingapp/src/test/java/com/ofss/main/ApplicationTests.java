@@ -35,5 +35,14 @@ class ApplicationTests {
 		Account account = accountService.getAccountByCustomer(login);
 		System.out.println(account);
 	}
-
+	
+	@Test
+	void newCheck() 
+	{
+		Login login = new Login(24, "nobita", 0, null);
+		Customer customer = customerService.getCustomerByLogin(login);
+		sys
+		customer.setGender("female");
+		System.out.println(customerService.updateCustomerDetails(customer));
+	}
 }

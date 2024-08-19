@@ -57,4 +57,12 @@ public class CustomerServiceImpl implements CustomerService{
 	    return null;
 	}
 
+	@Override
+	public Customer updateCustomerDetails(Customer customer) {
+		loginRepository.save(customer.getLogin()); // i can update password with this line, previously it wasnt updating the password as login is nested inside the customer
+		return customerRepository.save(customer);
+	}
+	
+	
+
 }
