@@ -1,0 +1,62 @@
+<!--
+ Copyright (c) 2014, 2024, Oracle and/or its affiliates.
+ Licensed under The Universal Permissive License (UPL), Version 1.0
+ as shown at https://oss.oracle.com/licenses/upl/
+ -->
+<div class="oj-hybrid-padding">
+  <h1>Customers Content Area</h1>
+  <div>
+    <oj-table id="table" data="[[dataprovider]]"
+    columns='[{"headerText": "Id",
+   "field": "id"},
+  {"headerText": "Name",
+   "field": "name"},
+  {"headerText": "Salary",
+   "field": "salary"}]'>
+</oj-table>
+  </div>
+<!-- <div>
+  <oj-form-layout readonly="false" colspan-wrap="wrap" max-columns="1">
+    <div>
+      <oj-input-number id="" label-hint="Department Id" value="{{}}"></oj-input-number>
+      <oj-input-text id="" label-hint="Department Name" value="{{inputDepartmentName}}"></oj-input-text>
+      <oj-input-number id="" label-hint="Location Id" value="{{}}const addedRowKey = addedRow[this.keyAttributes]"></oj-input-number>
+      <oj-input-number id="" label-hint="Manager Id" value="{{}}"></oj-input-number>
+    </div>
+    <div>
+      <oj-button id="addButton" on-oj-action="[[addRow]]" disabled="[[disabledAdd]]">Create</oj-button>
+      . . . 
+    </div>
+
+    
+  </oj-form-layout>
+</div> -->
+
+<div>
+<h1> Add employees </h1>
+<oj-c-form-layout max-columns="2" direction="row" full-width="true">
+  <!-- <div>
+    <oj-c-input-text id="text-input" value="{{id}}" label-hint="Enter Id"
+      label-edge="inside"></oj-c-input-text>
+
+  </div> -->
+  <div>
+    <oj-c-input-text id="text-input" value="{{name}}" label-hint="Enter Your Name"
+      label-edge="inside"></oj-c-input-text>
+
+  </div>
+  <div>
+    <oj-c-input-text id="text-input" value="{{salary}}" label-hint="Enter Your Salary"
+      label-edge="inside"></oj-c-input-text>
+
+  </div>
+</div>
+</oj-c-form-layout>
+</div>
+<div>
+  <oj-c-button id="button1" on-oj-action="[[addRow]]" disabled="[[name() == null]]"
+    label="Submit"></oj-c-button>
+</div>
+
+
+</div>
