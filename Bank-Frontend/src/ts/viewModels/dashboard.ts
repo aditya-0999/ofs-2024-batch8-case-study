@@ -19,6 +19,7 @@ import "oj-c/button";
 import "oj-c/progress-bar";
 import "ojs/ojtable";
 import { IntlConverterUtils } from "ojs/ojconverterutils-i18n";
+import "my-component/loader";
 
 
 
